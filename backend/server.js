@@ -39,6 +39,16 @@ app.use(
 );
 
 // Routes
+
+// Health check route
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "success",
+    message: "API is running",
+    timestamp: new Date().toISOString(),
+  });
+});
+
 app.use("/api", authRoutes);
 
 // Start server
